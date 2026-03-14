@@ -1,17 +1,5 @@
 import ky from 'ky';
-
-type Post = {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-};
-
-type UpdatePostInput = {
-  title: string;
-  body: string;
-  userId: number;
-};
+import type { Post, UpdatePostInput } from './types';
 
 const client = ky.create({
   prefixUrl: 'https://jsonplaceholder.typicode.com',
@@ -27,4 +15,3 @@ const api = {
 };
 
 export { api };
-export type { Post, UpdatePostInput };

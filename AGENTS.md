@@ -9,6 +9,7 @@
 - `public/` contains static files served as-is by Vite.
 - `components/ui/` contains shared UI components (shadcn-style).
 - `lib/utils.ts` holds shared utility helpers.
+- `src/api/api.ts` provides a typed ky-based API client; shared API types live in `src/api/types.ts`.
 
 ## Build, Test, and Development Commands
 
@@ -32,6 +33,7 @@
 - Routing: TanStack Router is configured in `src/router.tsx`; route components live in `src/routes/`.
 - Theme: `src/hooks/theme.ts` manages light/dark/system preference via `localStorage` and the `dark` class.
 - Aliases: Vite resolves `@` to the repository root; shadcn aliases map `@/components`, `@/lib`, `@/hooks`.
+- API: use the ky client in `src/api/api.ts`; keep request/response types in `src/api/types.ts`.
 
 ## Testing Guidelines
 
