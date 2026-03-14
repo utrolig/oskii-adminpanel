@@ -26,6 +26,15 @@
 - Indentation: follow existing files (2-space formatting is typical in the repo).
 - Components: PascalCase file/component names (e.g., `App.tsx`), hooks as `useThing`.
 - Utilities: camelCase exports in `lib/`.
+- Components syntax: prefer named exports with props types declared as `ComponentNameProps` and `PropsWithChildren`, for example:
+
+```tsx
+export type ComponentNameProps = { myProp: string; };
+
+export function ComponentName({ children, myProp }: PropsWithChildren<ComponentNameProps>) {
+  return (<h1>ComponentName {myProp}</h1>);
+}
+```
 - Linting: ESLint is configured via `eslint.config.js`; run `npm run lint` before PRs.
 - Formatting: Prettier uses `.prettierrc.json`; run `npm run format`.
 - Workflow: when making changes, run `npm run lint` and `npm run typecheck`; run `npm run format` after completing tasks to ensure consistent formatting.
@@ -34,6 +43,7 @@
 - Theme: `src/hooks/theme.ts` manages light/dark/system preference via `localStorage` and the `dark` class.
 - Aliases: Vite resolves `@` to the repository root; shadcn aliases map `@/components`, `@/lib`, `@/hooks`.
 - API: use the ky client in `src/api/api.ts`; keep request/response types in `src/api/types.ts`.
+- Components: prefer small, contained presentational components; avoid repeating JSX or Tailwind class strings inline—if something repeats, extract a component.
 
 ## Testing Guidelines
 
