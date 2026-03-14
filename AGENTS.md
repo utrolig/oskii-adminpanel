@@ -4,6 +4,8 @@
 
 - `src/` holds the React app entry points (`main.tsx`) and root component (`App.tsx`), plus global styles in `index.css` and `App.css`.
 - `src/assets/` stores app-specific static assets imported by the UI.
+- `src/routes/` contains TanStack Router route components plus the root layout shell.
+- `src/router.tsx` defines the TanStack Router route tree.
 - `public/` contains static files served as-is by Vite.
 - `components/ui/` contains shared UI components (shadcn-style).
 - `lib/utils.ts` holds shared utility helpers.
@@ -27,6 +29,9 @@
 - Formatting: Prettier uses `.prettierrc.json`; run `npm run format`.
 - Workflow: when making changes, run `npm run lint` and `npm run typecheck`; run `npm run format` after completing tasks to ensure consistent formatting.
 - Styling: global styles live in `src/index.css` and `src/App.css`; UI components are in `components/ui/`.
+- Routing: TanStack Router is configured in `src/router.tsx`; route components live in `src/routes/`.
+- Theme: `src/hooks/theme.ts` manages light/dark/system preference via `localStorage` and the `dark` class.
+- Aliases: Vite resolves `@` to the repository root; shadcn aliases map `@/components`, `@/lib`, `@/hooks`.
 
 ## Testing Guidelines
 
@@ -43,4 +48,6 @@
 ## Configuration & Tooling Notes
 
 - Node tooling is managed via Vite + TypeScript; config files include `vite.config.ts` and `tsconfig*.json`.
-- Tailwind CSS is listed in dev dependencies; if used, document custom setup in this file.
+- Tailwind CSS v4 is configured via `@tailwindcss/vite` and `src/index.css` imports.
+- shadcn/ui is configured via `components.json` (style `base-mira`, Phosphor icons).
+- React Compiler is enabled via `@vitejs/plugin-react` + `babel-plugin-react-compiler`.
